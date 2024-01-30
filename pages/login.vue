@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 type Credentials = {
   email: string;
   password: string;
@@ -10,40 +11,16 @@ const form = ref<Credentials>({
 });
 
 
-
 const handleLogin = async () => {
 
-  let headers = {
-    accept: 'application/json',
-    referer: 'http://localhost:3000',
-  };
+  await useApiFetch('/sanctum/csrf-cookie');
 
-  await useFetch('http://localhost:8000/sanctum/csrf-cookie', {
-    headers,
-    credentials: 'include',
-  });
-
-  const token = useCookie('XSRF-TOKEN');
-
-  if (token.value) {
-    headers['X-XSRF-TOKEN'] = token.value;
-  }
-
-  await useFetch('http://localhost:8000/login', {
+  await useApiFetch('/login', {
     method: 'POST',
-    headers,
     body: form.value,
-    credentials: 'include',
-    watch: false,
   });
 
-  const { data } = await useFetch('http://localhost:8000/api/user', {
-    headers,
-    credentials: 'include',
-    watch: false,
-  });
-
-
+  const { data } = await useApiFetch('/api/user');
 
 }
 </script>
