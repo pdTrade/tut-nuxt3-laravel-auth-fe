@@ -9,7 +9,40 @@ const form = ref<Credentials>({
   password: '',
 });
 
+
+
 const handleLogin = async () => {
+
+  let headers = {
+    accept: 'application/json',
+    referer: 'http://localhost:3000',
+  };
+
+  await useFetch('http://localhost:8000/sanctum/csrf-cookie', {
+    headers,
+    credentials: 'include',
+  });
+
+  const token = useCookie('XSRF-TOKEN');
+
+  if (token.value) {
+    headers['X-XSRF-TOKEN'] = token.value;
+  }
+
+  await useFetch('http://localhost:8000/login', {
+    method: 'POST',
+    headers,
+    body: form.value,
+    credentials: 'include',
+    watch: false,
+  });
+
+  const { data } = await useFetch('http://localhost:8000/api/user', {
+    headers,
+    credentials: 'include',
+    watch: false,
+  });
+
 
 
 }
@@ -36,7 +69,7 @@ const handleLogin = async () => {
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight" id="password" type="password" placeholder="xxxxxxxx" v-model="form.password">
     </div>
     <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Login
       </button>
     </div>
