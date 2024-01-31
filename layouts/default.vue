@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const auth = useAuthStore();
+</script>
 
 <template>
   <div>
@@ -19,6 +21,11 @@
         <NuxtLink class="text-blue-500" to="/register">Register</NuxtLink>
       </li>
     </ul>
+    <div>
+      id:{{  auth.user?.id }}
+      name:{{  auth.user?.name }}
+      email:{{  auth.user?.email }}
+    </div>
     <slot />
   </div>
 </template>

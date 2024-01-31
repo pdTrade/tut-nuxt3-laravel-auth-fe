@@ -10,18 +10,18 @@ const form = ref<Credentials>({
   password: '',
 });
 
+const auth = useAuthStore();
 
 const handleLogin = async () => {
+  if (auth.isLoggedIn) {
+    return navigateTo('/');
+  }
 
-  await useApiFetch('/sanctum/csrf-cookie');
+  const { error } = await auth.login(form.value);
 
-  await useApiFetch('/login', {
-    method: 'POST',
-    body: form.value,
-  });
-
-  const { data } = await useApiFetch('/api/user');
-
+  if (!error.value) {
+    return navigateTo('/');
+  }
 }
 </script>
 
