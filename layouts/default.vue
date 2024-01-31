@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const auth = useAuthStore();
+
+const handleLogout = async () => {
+  await auth.logout()
+};
 </script>
 
 <template>
@@ -26,6 +30,9 @@ const auth = useAuthStore();
       name:{{  auth.user?.name }}
       email:{{  auth.user?.email }}
     </div>
+    <button v-if="auth.isLoggedIn" @click="handleLogout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+      Logout
+    </button>
     <slot />
   </div>
 </template>
