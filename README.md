@@ -1,3 +1,10 @@
+# NuxtとLaravelのBreeze/Sanctumを使ったサンプル（フロントエンド）
+ログインとログアウト機能のみ
+下記はこれからの予定
+- ユーザー登録
+- メールアドレス認証
+- パスワードリセット
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
