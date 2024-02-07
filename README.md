@@ -1,10 +1,11 @@
 # NuxtとLaravelのBreeze/Sanctumを使ったサンプル
 バックエンド:https://github.com/pdTrade/tut-nuxt3-laravel-auth-be
 
-ログインとログアウト機能のみ
+実装済み
+- ログイン/ログアウト
+- ユーザー登録
 
 下記はこれからの予定
-- ユーザー登録
 - メールアドレス認証
 - パスワードリセット
 
