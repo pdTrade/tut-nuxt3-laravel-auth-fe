@@ -1,5 +1,8 @@
-# NuxtとLaravelのBreeze/Sanctumを使ったサンプル（フロントエンド）
+# NuxtとLaravelのBreeze/Sanctumを使ったサンプル
+バックエンド:https://github.com/pdTrade/tut-nuxt3-laravel-auth-be
+
 ログインとログアウト機能のみ
+
 下記はこれからの予定
 - ユーザー登録
 - メールアドレス認証
