@@ -24,6 +24,9 @@ const handleLogout = async () => {
       <li class="mr-6">
         <NuxtLink class="text-blue-500" to="/register">Register</NuxtLink>
       </li>
+      <li class="mr-6">
+        <NuxtLink class="text-blue-500" to="/forgot-password">Forgot Password</NuxtLink>
+      </li>
     </ul>
     <div>
       id:{{  auth.user?.id }}
