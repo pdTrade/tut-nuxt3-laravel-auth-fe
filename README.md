@@ -1,3 +1,14 @@
+# NuxtとLaravelのBreeze/Sanctumを使ったサンプル
+バックエンド:https://github.com/pdTrade/tut-nuxt3-laravel-auth-be
+
+実装済み
+- ログイン/ログアウト
+- ユーザー登録
+- メール認証
+
+下記はこれからの予定
+- パスワードリセット
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
